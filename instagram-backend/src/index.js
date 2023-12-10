@@ -6,13 +6,11 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 
-
-
 const PORT = process.env.PORT || process.env.LOCAL_PORT;
 
 mongoose
   .connect(process.env.MONGO_URL, {
-    useFindAndModify: false
+    // Remova a opção useFindAndModify
   })
   .then(() => {
     console.log("Conectado ao MongoDB");

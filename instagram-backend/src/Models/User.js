@@ -8,6 +8,21 @@ const Schema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    avatar: {
+        type: String,
+        required: true,
+    },
+    site: {
+        type: String
     }
 })
 

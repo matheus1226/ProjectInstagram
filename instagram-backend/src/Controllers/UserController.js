@@ -9,15 +9,16 @@ module.exports = {
             password,
             name,
             description,
+            avatar,
             site
         } = req.body
         
         try{
 
-            const userAlreadyExists = await User.findOne(username)
+            const userAlreadyExists = await User.findOne({ username });
 
-            if(!userAlreadyExists) return res.status(404).json({
-                message: 'User already exist, try a different one'
+            if (userAlreadyExists) return res.status(404).json({
+                message: 'User already exists, try a different one'
             })
 
             const userCreated = await User.create({
@@ -25,7 +26,8 @@ module.exports = {
                 password,
                 name,
                 description,
-                site
+                site,
+                avatar
             })
 
             return res.status(200).json({
